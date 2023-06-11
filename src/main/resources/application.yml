@@ -1,0 +1,9 @@
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    operationsSorter: alpha
+
+Spring:
+  profiles:
+    active: dev

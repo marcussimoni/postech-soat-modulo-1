@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "admin"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./scripts/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+  soat-modulo1:
+    image: postech-soat-modulo-1:latest
+    environment:
+      POSTGRES_HOST: "postgres"
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "admin"
+      SPRING_PROFILES_ACTIVE: prd
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

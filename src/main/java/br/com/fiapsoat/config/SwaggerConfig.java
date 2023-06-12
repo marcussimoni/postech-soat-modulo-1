@@ -14,7 +14,7 @@ public class SwaggerConfig {
     public OpenAPI config() {
         return new OpenAPI()
                 .info(new Info().title("Postech Fiap - Software Architecture")
-                        .description("Modulo 01 - API Lanchonete")
+                        .description("Tech Challenge Modulo 01 - API Backend")
                         .version("v0.0.1")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()

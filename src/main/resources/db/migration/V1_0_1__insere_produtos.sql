@@ -18,4 +18,3 @@ insert into pedido(etapa, pedido_realizado_em, cliente_id) values('RECEBIDO', CU
 insert into pedido_produto values(2, 1);
 insert into pedido_produto values(2, 4);
 insert into pedido_produto values(2, 7);
-

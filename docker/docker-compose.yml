@@ -3,6 +3,7 @@ version: '3'
 services:
   postgres:
     image: postgres
+    container_name: postgres
     environment:
       POSTGRES_PASSWORD: "admin"
     ports:
@@ -12,9 +13,15 @@ services:
       - ./data:/var/lib/postgresql/data
     networks:
       - postgres-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-  soat-modulo1:
+  postech-soat-modulo-1:
     image: postech-soat-modulo-1:latest
+    container_name: postech-soat-modulo-1
     environment:
       POSTGRES_HOST: "postgres"
       POSTGRES_USERNAME: "postgres"
@@ -23,9 +30,11 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - postgres-network
+    restart: always
 
 networks:
   postgres-network:

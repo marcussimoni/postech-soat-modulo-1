@@ -1,9 +1,8 @@
 package br.com.fiapsoat.adapters.driver.controller;
 
-import br.com.fiapsoat.adapters.dto.ClienteDTO;
-import br.com.fiapsoat.adapters.dto.PedidoDTO;
-import br.com.fiapsoat.adapters.dto.ProdutoDTO;
+import br.com.fiapsoat.adapters.dto.*;
 import br.com.fiapsoat.core.application.usecases.cliente.ClienteUseCase;
+import br.com.fiapsoat.core.application.usecases.pagamento.PagamentoUseCase;
 import br.com.fiapsoat.core.application.usecases.pedido.PedidoUseCase;
 import br.com.fiapsoat.core.application.usecases.produto.ProdutoUseCase;
 import br.com.fiapsoat.core.domain.entities.enums.Categoria;
@@ -24,6 +23,7 @@ public class TotemController {
     private final ClienteUseCase clienteUseCase;
     private final ProdutoUseCase produtoUseCase;
     private final PedidoUseCase pedidoUseCase;
+    private final PagamentoUseCase pagamentoUseCase;
 
     @GetMapping(path = "/cliente/buscar/{cpf}")
     @Operation(summary = "Buscar cliente por cpf", tags = "Totem", description = "Consulta na base de dados um cliente cadastrado a partir do campo cpf")
@@ -55,6 +55,18 @@ public class TotemController {
     @Operation(tags = "Totem", summary = "Buscar pedido por número do pedido", description = "Consulta o pedido pelo número do pedido")
     public PedidoDTO buscarPedidoPorId(@Parameter(name = "id", description = "Número do pedido") @RequestParam(name = "id") Long id){
         return pedidoUseCase.buscarPedidoPorId(id);
+    }
+
+    @PostMapping(path = "/pedido/checkout")
+    @Operation(tags = "Totem", summary = "Checkout do pedido", description = "Efetuar o checkout do pedido")
+    public PedidoDTO checkout(@RequestBody CheckoutPedidoDTO dto){
+        return pedidoUseCase.checkoutPedido(dto);
+    }
+
+    @PostMapping(path = "/pedido/pagamento/{pedido}")
+    @Operation(tags = "Totem", summary = "Pagamento do pedido", description = "Efetuar o pagamento do pedido")
+    public ReciboDTO pagamento(@Parameter(name = "pedido", description = "Código do pedido gerado pelo sistema") @PathVariable(name = "pedido") Long pedido){
+        return pagamentoUseCase.pagamento(pedido);
     }
 
 }

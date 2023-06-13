@@ -8,4 +8,8 @@ import org.springframework.data.domain.Pageable;
 public interface ProdutoUseCase {
     Page<ProdutoDTO> listar(Categoria categoria, Pageable page);
     ProdutoDTO salvar(ProdutoDTO produto);
+
+    ProdutoDTO atualizar(ProdutoDTO produto);
+
+    void excluir(Long id);
 }

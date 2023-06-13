@@ -11,13 +11,15 @@ CREATE TABLE produto (
     preco float not null,
     categoria varchar(100) not null,
     descricao varchar(300) not null,
-    imagem varchar(500) not null
+    imagem varchar(500) not null,
+    ativo boolean not null default true
 );
 
 CREATE TABLE pedido (
     id serial primary key,
     cliente_id int null,
     etapa varchar(100) not null,
+    status_pagamento varchar(100) not null,
     pedido_realizado_em timestamp not null,
     pedido_retirado_em timestamp,
     CONSTRAINT fk_cliente

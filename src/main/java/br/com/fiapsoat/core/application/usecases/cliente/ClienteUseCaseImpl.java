@@ -42,10 +42,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
 
         } else {
 
-            Cliente entity = new Cliente();
-            entity.setNome(dto.getNome());
-            entity.setEmail(new Email(dto.getEmail()));
-            entity.setCpf(new Cpf(dto.getCpf()));
+            Cliente entity = new Cliente(dto);
 
             repository.save(entity);
 

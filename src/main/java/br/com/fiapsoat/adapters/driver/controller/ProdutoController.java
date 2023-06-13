@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,9 +28,26 @@ public class ProdutoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     @Operation(tags = "Produto", description = "Cadastra um novo produto")
     public ProdutoDTO salvar(@RequestBody ProdutoDTO produto) {
         return produtoUseCase.salvar(produto);
+    }
+
+
+    @PutMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(tags = "Produto", description = "Atualizar um produto")
+    public ProdutoDTO atualizar(@RequestBody ProdutoDTO produto, @PathVariable Long id) {
+        produto.setId(id);
+        return produtoUseCase.atualizar(produto);
+    }
+
+    @DeleteMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(tags = "Produto", description = "Excluir um produto")
+    public void excluir(@PathVariable Long id) {
+        produtoUseCase.excluir(id);
     }
 
 }

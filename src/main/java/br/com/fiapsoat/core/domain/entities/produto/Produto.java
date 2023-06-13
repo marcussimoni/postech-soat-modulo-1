@@ -9,12 +9,17 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "produto")
+@SQLDelete(sql = "update produto set ativo = false where id = ?")
+@Where(clause = "ativo = true")
 public class Produto implements Serializable, EntityValidation<Produto> {
 
     @Id

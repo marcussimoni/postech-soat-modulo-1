@@ -1,6 +1,7 @@
 package br.com.fiapsoat.adapters.dto;
 
 import br.com.fiapsoat.core.domain.entities.enums.EtapaDoPedido;
+import br.com.fiapsoat.core.domain.entities.enums.StatusDoPagamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,6 +24,9 @@ public class PedidoDTO {
 
     @Schema(description = "Etapa em que o pedido se encontra", example = "Em preparação")
     private EtapaDoPedido etapa;
+
+    @Schema(description = "Status do pagamento do pedido", example = "Pago")
+    private StatusDoPagamento statusDoPagamento;
 
     @Schema(description = "Data e hora em que o pedido foi realizado", example = "2023-01-01T00:00:00")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")

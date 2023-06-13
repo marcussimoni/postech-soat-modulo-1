@@ -9,12 +9,12 @@ INSERT INTO produto(nome, preco, descricao, categoria, imagem) VALUES ('Refriger
 INSERT INTO CLIENTE(nome, email, cpf) VALUES('teste1', 'teste1@email.com', '11111111111');
 INSERT INTO CLIENTE(nome, email, cpf) VALUES('teste2', 'teste2@email.com', '22222222222');
 
-insert into pedido(etapa, pedido_realizado_em) values('RECEBIDO', CURRENT_TIMESTAMP);
+insert into pedido(etapa, pedido_realizado_em, status_pagamento) values('RECEBIDO', CURRENT_TIMESTAMP, 'AGUARDANDO_PAGAMENTO');
 insert into pedido_produto values(1, 1);
 insert into pedido_produto values(1, 3);
 insert into pedido_produto values(1, 6);
 
-insert into pedido(etapa, pedido_realizado_em, cliente_id) values('RECEBIDO', CURRENT_TIMESTAMP, 1);
+insert into pedido(etapa, pedido_realizado_em, cliente_id, status_pagamento) values('RECEBIDO', CURRENT_TIMESTAMP, 1, 'PAGO');
 insert into pedido_produto values(2, 1);
 insert into pedido_produto values(2, 4);
 insert into pedido_produto values(2, 7);

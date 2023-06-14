@@ -1,4 +1,4 @@
-INSERT INTO produto(nome, preco, descricao, categoria, imagem) VALUES ('Hamburger', 10.0, 'Hamburger de Siri', 'LANCHE', 'imagem do hamburger');
+INSERT INTO produto(nome, preco, descricao, categoria, imagem) VALUES ('Hamburger', 10.0, 'Hamburger', 'LANCHE', 'imagem do hamburger');
 INSERT INTO produto(nome, preco, descricao, categoria, imagem) VALUES ('Batata', 5.90, 'Batata Pequena', 'ACOMPANHAMENTO', 'imagem da batata');
 INSERT INTO produto(nome, preco, descricao, categoria, imagem) VALUES ('Batata', 6.90, 'Batata Média', 'ACOMPANHAMENTO', 'imagem da batata');
 INSERT INTO produto(nome, preco, descricao, categoria, imagem) VALUES ('Batata', 7.90, 'Batata Grande', 'ACOMPANHAMENTO', 'imagem da batata');

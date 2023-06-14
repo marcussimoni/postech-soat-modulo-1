@@ -2,11 +2,11 @@ package br.com.fiapsoat.core.application.usecases.produto;
 
 import br.com.fiapsoat.adapters.dto.ProdutoDTO;
 import br.com.fiapsoat.core.domain.entities.enums.Categoria;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface ProdutoUseCase {
-    Page<ProdutoDTO> listar(Categoria categoria, Pageable page);
+    List<ProdutoDTO> listar(Categoria categoria);
     ProdutoDTO salvar(ProdutoDTO produto);
 
     ProdutoDTO atualizar(ProdutoDTO produto);

@@ -24,8 +24,8 @@ public class ProdutoUsecaseImpl implements ProdutoUseCase {
     private final ProdutoMapper mapper;
 
     @Override
-    public Page<ProdutoDTO> listar(Categoria categoria, Pageable pageable) {
-        return repository.findByCategoria(categoria, pageable);
+    public List<ProdutoDTO> listar(Categoria categoria) {
+        return repository.findByCategoria(categoria);
     }
 
     @Override

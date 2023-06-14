@@ -5,7 +5,7 @@ services:
     image: postgres
     container_name: postgres
     environment:
-      POSTGRES_PASSWORD: "admin"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -23,9 +23,9 @@ services:
     image: postech-soat-modulo-1:latest
     container_name: postech-soat-modulo-1
     environment:
-      POSTGRES_HOST: "postgres"
-      POSTGRES_USERNAME: "postgres"
-      POSTGRES_PASSWORD: "admin"
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_PROFILES_ACTIVE: prd
     ports:
       - "8080:8080"

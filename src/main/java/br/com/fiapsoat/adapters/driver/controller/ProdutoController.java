@@ -11,25 +11,26 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("produto")
-@Tag(name = "Produto", description = "Gerencia os produtos disponíveis")
+@Tag(name = "Produtos", description = "Gerencia os produtos disponíveis")
 public class ProdutoController {
 
     private final ProdutoUseCase produtoUseCase;
 
     @GetMapping
-    @Operation(tags = "Produto", description = "Lista todos os produtos disponíveis")
-    public Page<ProdutoDTO> listar(
-            @RequestParam(name = "categoria", required = false) Categoria categoria,
-            Pageable page){
-        return produtoUseCase.listar(categoria, page);
+    @Operation(tags = "Produtos", summary = "Listar produtos", description = "Lista todos os produtos disponíveis")
+    public List<ProdutoDTO> listar(
+            @RequestParam(name = "categoria", required = false) Categoria categoria){
+        return produtoUseCase.listar(categoria);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(tags = "Produto", description = "Cadastra um novo produto")
+    @Operation(tags = "Produtos", description = "Cadastra um novo produto", summary = "Cadastrar novo produto")
     public ProdutoDTO salvar(@RequestBody ProdutoDTO produto) {
         return produtoUseCase.salvar(produto);
     }
@@ -37,7 +38,7 @@ public class ProdutoController {
 
     @PutMapping(path = "{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(tags = "Produto", description = "Atualizar um produto")
+    @Operation(tags = "Produtos", description = "Atualizar um produto", summary = "Atualizar produto")
     public ProdutoDTO atualizar(@RequestBody ProdutoDTO produto, @PathVariable Long id) {
         produto.setId(id);
         return produtoUseCase.atualizar(produto);
@@ -45,7 +46,7 @@ public class ProdutoController {
 
     @DeleteMapping(path = "{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(tags = "Produto", description = "Excluir um produto")
+    @Operation(tags = "Produtos", description = "Excluir um produto", summary = "Excluir produto")
     public void excluir(@PathVariable Long id) {
         produtoUseCase.excluir(id);
     }

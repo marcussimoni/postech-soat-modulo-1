@@ -19,19 +19,19 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("pedido")
-@Tag(name = "Pedido", description = "Gerencia os pedidos disponíveis")
+@Tag(name = "Pedidos", description = "Gerencia os pedidos disponíveis")
 public class PedidoController {
 
     private final PedidoUseCase pedidoUseCase;
 
     @GetMapping
-    @Operation(tags = "Pedido", summary = "Lista todos os pedidos disponíveis.", description = "Lista todos os pedidos disponíveis.")
+    @Operation(tags = "Pedidos", summary = "Lista todos os pedidos disponíveis.", description = "Lista todos os pedidos disponíveis.")
     public List<PedidoDTO> listar(){
         return pedidoUseCase.listar();
     }
 
     @PutMapping(path = "/proxima-etapa/{pedido}")
-    @Operation(tags = "Pedido", summary = "Atualiza etapa do pedido para próxima etapa disponível", description = "As etapas são atualizadas de: RECEBIDO para EM PREPARACAO para PRONTO e FINALIZADO")
+    @Operation(tags = "Pedidos", summary = "Atualiza etapa do pedido para próxima etapa disponível", description = "As etapas são atualizadas de: RECEBIDO para EM PREPARACAO para PRONTO e FINALIZADO")
     public PedidoDTO atualizaParaEmPreparacao(@PathVariable Long pedido){
         return pedidoUseCase.atualizaParaAProximaEtapaDoPedido(pedido);
     }

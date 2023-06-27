@@ -12,19 +12,19 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("cliente")
-@Tag(name = "Clientes", description = "Gerencia os dados do cliente")
+@Tag(name = "Área administrativa - Clientes", description = "Gerencia os dados do cliente cadastrados para campanhas promocionais")
 public class ClienteController {
 
     private final ClienteUseCase clienteUseCase;
 
     @GetMapping
-    @Operation(tags = "Clientes", summary = "Listar clientes", description = "Lista todos os clientes cadastrados")
+    @Operation(tags = "Área administrativa - Clientes", summary = "Listar clientes", description = "Lista todos os clientes cadastrados")
     public List<ClienteDTO> listar(){
         return clienteUseCase.listar();
     }
 
     @PostMapping
-    @Operation(tags = "Clientes", summary = "Cadastrar cliente", description = "Salva um novo cliente")
+    @Operation(tags = "Área administrativa - Clientes", summary = "Cadastrar cliente", description = "Salva um novo cliente")
     public ClienteDTO salvar(@RequestBody ClienteDTO cliente) {
         return clienteUseCase.salvar(cliente);
     }

@@ -6,7 +6,6 @@ import br.com.fiapsoat.core.domain.entities.cliente.Cliente;
 import br.com.fiapsoat.core.domain.exceptions.BusinessException;
 import br.com.fiapsoat.core.domain.mappers.ClienteMapper;
 import br.com.fiapsoat.core.domain.valueobjects.cpf.Cpf;
-import br.com.fiapsoat.core.domain.valueobjects.email.Email;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.apache.commons.collections4.IteratorUtils;
@@ -60,7 +59,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
                 .map(obj -> {
                     ClienteDTO clienteDTO = new ClienteDTO();
                     clienteDTO.setId(obj.getId());
-                    clienteDTO.setNome(obj.getNome());
+                    clienteDTO.setNome(obj.getNome().getValue());
                     clienteDTO.setCpf(obj.getCpf().format());
                     clienteDTO.setEmail(obj.getEmail().getEmail());
                     return clienteDTO;

@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
                 .builder()
                 .erro(exception.getErro())
                 .detalhes(exception.getDetalhes())
-                .data(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .build();
         logger.error(error.getErro(), exception);
         return ResponseEntity.status(exception.getStatusCode()).body(error);
@@ -43,7 +43,7 @@ public class GlobalExceptionHandler {
                 .builder()
                 .erro("Não foi possível concluir a operação.")
                 .detalhes(errorMessages)
-                .data(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .build();
         logger.error(error.getErro(), exception);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
         BusinessError error = BusinessError
                 .builder()
                 .erro(exception.getMessage())
-                .data(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .build();
         logger.error(error.getErro(), exception);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);

@@ -22,6 +22,6 @@ public class BusinessError {
 
     @Schema(description = "Data e hora em que o evento ocorreu", example = "2023-01-01'T'00:00:00")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime data = LocalDateTime.now();
+    private LocalDateTime timestamp;
 
 }

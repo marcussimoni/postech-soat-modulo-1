@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
@@ -65,7 +66,7 @@ public class PedidoUseCaseImpl implements PedidoUseCase {
                 .etapa(pedido.getEtapa())
                 .statusDoPagamento(pedido.getStatusDoPagamento())
                 .tempoDesdeRecebimentoDoPedido(MessageFormat.format("{0} minutos", tempoDesdeORecebimentoDoPedido))
-                .cliente(pedido.getCliente() == null ? "Cliente não identificado" : pedido.getCliente().getNome())
+                .cliente(pedido.getCliente() == null ? "Cliente não identificado" : pedido.getCliente().getNome().getValue())
                 .valorTotalDoPedido(MessageFormat.format("R$ {0}", BigDecimal.valueOf(total).setScale(2)))
                 .items(produtoMapper.entityToDto(pedido.getProdutos()))
                 .build();
@@ -76,8 +77,17 @@ public class PedidoUseCaseImpl implements PedidoUseCase {
 
         Cliente cliente = null;
 
-        if (StringUtils.isNotBlank(dto.getCliente())) {
-            cliente = new Cliente(clienteUseCase.buscarClientePorCpf(dto.getCliente()));
+        if (StringUtils.isNotBlank(dto.getCpf())) {
+            cliente = new Cliente(clienteUseCase.buscarClientePorCpf(dto.getCpf()));
+        }
+
+        if (CollectionUtils.isEmpty(dto.getProdutos())){
+            throw BusinessException
+                    .builder()
+                    .erro("Nenhum produto selecionado")
+                    .detalhes(List.of("Ao menos um produto deve ser adicionado a lista de produtos para prosseguir com o checkout do pedido"))
+                    .statusCode(HttpStatus.BAD_REQUEST)
+                    .build();
         }
 
         List<Produto> produtos = produtoMapper.dtoToEntity(dto.getProdutos());

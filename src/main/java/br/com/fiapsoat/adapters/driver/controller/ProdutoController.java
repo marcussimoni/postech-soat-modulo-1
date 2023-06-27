@@ -16,13 +16,13 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("produto")
-@Tag(name = "Produtos", description = "Gerencia os produtos disponíveis")
+@Tag(name = "Área administrativa - Produtos", description = "Gerencia os produtos disponíveis para pedidos")
 public class ProdutoController {
 
     private final ProdutoUseCase produtoUseCase;
 
     @GetMapping
-    @Operation(tags = "Produtos", summary = "Listar produtos", description = "Lista todos os produtos disponíveis")
+    @Operation(tags = "Área administrativa - Produtos", summary = "Listar produtos", description = "Lista todos os produtos disponíveis")
     public List<ProdutoDTO> listar(
             @RequestParam(name = "categoria", required = false) Categoria categoria){
         return produtoUseCase.listar(categoria);
@@ -30,7 +30,7 @@ public class ProdutoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(tags = "Produtos", description = "Cadastra um novo produto", summary = "Cadastrar novo produto")
+    @Operation(tags = "Área administrativa - Produtos", description = "Cadastra um novo produto", summary = "Cadastrar novo produto")
     public ProdutoDTO salvar(@RequestBody ProdutoDTO produto) {
         return produtoUseCase.salvar(produto);
     }
@@ -38,7 +38,7 @@ public class ProdutoController {
 
     @PutMapping(path = "{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(tags = "Produtos", description = "Atualizar um produto", summary = "Atualizar produto")
+    @Operation(tags = "Área administrativa - Produtos", description = "Atualizar um produto", summary = "Atualizar produto")
     public ProdutoDTO atualizar(@RequestBody ProdutoDTO produto, @PathVariable Long id) {
         produto.setId(id);
         return produtoUseCase.atualizar(produto);
@@ -46,7 +46,7 @@ public class ProdutoController {
 
     @DeleteMapping(path = "{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(tags = "Produtos", description = "Excluir um produto", summary = "Excluir produto")
+    @Operation(tags = "Área administrativa - Produtos", description = "Excluir um produto", summary = "Excluir produto")
     public void excluir(@PathVariable Long id) {
         produtoUseCase.excluir(id);
     }

@@ -4,16 +4,16 @@ Projeto do tech challenge para avaliação do módulo 1 do curso Software Archit
 
 ### Api backend
 
-Para a implementação da api backend contendo os endpoints que representam o processo, foi utilizada a linguagem Java junto com o Framework Spring boot. Os pré requisitos para construir e executar a aplicação são os seguintes:
+Api backend contendo os endpoints que representam todo o processo. Foi utilizada a linguagem Java junto com o Framework Spring boot. Os seguintes pré requisitos são necessários para construir e executar a aplicação:
 
 - Java 17
 - Apache maven 3.8.2
 - Docker 
 
-Para construir a aplicação basta, a partir do diretório raiz do projeto, executar o seguinte comando maven no terminal:
+A primeira etapa consiste em gerar o build da api backend. Para esta etapa é necessário, a partir do diretório raiz do projeto, executar o seguinte comando maven no terminal:
 `mvn clean package`
 
-### Dockerfile e Docker Compose para execução da aplicação com banco de dados.
+### Dockerfile e Docker Compose para execução da api com o banco de dados.
 
 Com o build da api backend concluído, as etapas para construção da imagem e execução do docker compose podem ser realizadas com os seguintes comandos a partir da raiz do projeto: 
 

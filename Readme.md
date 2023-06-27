@@ -1,4 +1,4 @@
-## FIAP PosTech Software Architecture
+## PosTech Software Architecture
 
 Projeto do tech challenge para avaliação do módulo 1 do curso Software Architecture.
 

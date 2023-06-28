@@ -30,24 +30,24 @@ Com a api e o banco de dados iniciados, podemos acessar a documentação da api 
 O processo para realizar um pedido através dos endpoints da api deve seguir os seguintes passos:
 
 1. Verificar se o cliente possui cadastro ou cadastra-lo caso não seja cadastrado no sistema ainda:
-   1. Para verificar se o cliente possui cadastro podemos utilizar o endpoint: [atendimento/buscar/cliente/{cpf}](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarClientePorCpf)
-   2. Cadastrar o novo cliente no endpoint: [atendimento/cliente/cadastrar](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/cadastrarNovoCliente)
-2. A segunda etapa consiste em apresentar os produtos disponíveis para compor o pedido. Os pedidos podem ser acessados em: [atendimento/produtos](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarProdutosPorCategoria)
-3. Após os produtos escolhidos o checkou do pedido pode ser concluido pelo endpoint [atendimento/pedido/checkout](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/checkout). O cliente é opcional durante o checkout, se o cliente desejar se identificar é necessário incluir o cpf do cliente no payload do pedido.
-4. Com o checkout realizado o pedido só fica disponível para preparo após o pagamento do pedido. O pagamento pode ser realizado pelo endpoint: [atendimento/pedido/pagamento](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/pagamento)
+   1. Para verificar se o cliente possui cadastro podemos utilizar o endpoint: ***[atendimento/buscar/cliente/{cpf}](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarClientePorCpf)***
+   2. Cadastrar o novo cliente no endpoint: ***[atendimento/cliente/cadastrar](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/cadastrarNovoCliente)***
+2. A segunda etapa consiste em apresentar os produtos disponíveis para compor o pedido. Os pedidos podem ser acessados em: ***[atendimento/produtos](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarProdutosPorCategoria)***
+3. Após os produtos escolhidos o checkou do pedido pode ser concluido pelo endpoint ***[atendimento/pedido/checkout](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/checkout)***. O cliente é opcional durante o checkout, se o cliente desejar se identificar é necessário incluir o cpf do cliente no payload do pedido.
+4. Com o checkout realizado o pedido só fica disponível para preparo após o pagamento do pedido. O pagamento pode ser realizado pelo endpoint: ***[atendimento/pedido/pagamento](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/pagamento)***
 
 ### Atualizar as etapas do pedido e acompanhamento das etapas pelo cliente e atendimento
 
 Após o pedido ser realizado e pago pelo cliente a cozinha pode iniciar o preparo.
 
 1. O acompanhamento do status do pedido pode ser feito por dois endpoins:
-   1. Pelo número do pedido [pedido/buscar-por-numero](http://localhost:8080/swagger-ui/index.html#/Pedidos/buscarPedidoPorId). Pode ser utilizado pelo atendente para para verificar pedidos em qualquer etapa e que foram ou não pagos.
-   2. Todos os pedidos pagos e aguardando a conclusão do preparo [pedido](http://localhost:8080/swagger-ui/index.html#/Pedidos/listar_1). Nesse endpoint só serão listados os pedidos com status de pagamento igual a Pago  para que o cliente possa acompanhar em qual etapa o seu pedido se encontra.
-2. A equipe responsável pelo preparo dos pedidos pode atualizar as etapas a partir do endpoint: [pedido/proxima-etapa/{pedido}](http://localhost:8080/swagger-ui/index.html#/Pedidos/atualizaParaEmPreparacao)
+   1. Pelo número do pedido ***[pedido/buscar-por-numero](http://localhost:8080/swagger-ui/index.html#/Pedidos/buscarPedidoPorId)***. Pode ser utilizado pelo atendente para para verificar pedidos em qualquer etapa e que foram ou não pagos.
+   2. Todos os pedidos pagos e aguardando a conclusão do preparo ***[pedido](http://localhost:8080/swagger-ui/index.html#/Pedidos/listar_1)***. Nesse endpoint só serão listados os pedidos com status de pagamento igual a Pago  para que o cliente possa acompanhar em qual etapa o seu pedido se encontra.
+2. A equipe responsável pelo preparo dos pedidos pode atualizar as etapas a partir do endpoint: ***[pedido/proxima-etapa/{pedido}](http://localhost:8080/swagger-ui/index.html#/Pedidos/atualizaParaEmPreparacao)***
 
 ### Áreas administrativas
 
 Para cadastrar novos produtos ou clientes podemos utilizar os seguintes endpoints:
 
-1. Para produtos: [produtos](http://localhost:8080/swagger-ui/index.html#/%C3%81rea%20administrativa%20-%20Produtos)
-2. Para clientes: [clientes](http://localhost:8080/swagger-ui/index.html#/%C3%81rea%20administrativa%20-%20Clientes)
+1. Para produtos: ***[produtos](http://localhost:8080/swagger-ui/index.html#/%C3%81rea%20administrativa%20-%20Produtos)***
+2. Para clientes: ***[clientes](http://localhost:8080/swagger-ui/index.html#/%C3%81rea%20administrativa%20-%20Clientes)***

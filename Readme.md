@@ -51,8 +51,3 @@ Para cadastrar novos produtos ou clientes podemos utilizar os seguintes endpoint
 
 1. Para produtos: [produtos](http://localhost:8080/swagger-ui/index.html#/%C3%81rea%20administrativa%20-%20Produtos)
 2. Para clientes: [clientes](http://localhost:8080/swagger-ui/index.html#/%C3%81rea%20administrativa%20-%20Clientes)
-
-### Event storming e agregados do fluxo de pedidos, preparo e atendimento
-
-![Event Storming](./imagens/event_storming.jpg)
-![Agregados](./imagens/agregados.jpg)

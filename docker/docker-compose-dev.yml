@@ -1,5 +1,5 @@
 version: '3'
-
+#DOCKER-COMPOSE UTILIZADO DURANTES O DESENVOLVIMENTO DA API
 services:
   postgres:
     image: postgres:15.3

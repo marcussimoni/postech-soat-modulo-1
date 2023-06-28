@@ -111,7 +111,7 @@ public class PedidoUseCaseImpl implements PedidoUseCase {
 
     @Override
     public List<PedidoDTO> listar() {
-        return repository.buscarPedidosDisponiveis().stream().map(this::pedidoDTOBuilder).toList();
+        return repository.buscarPedidosDisponiveis(StatusDoPagamento.PAGO).stream().map(this::pedidoDTOBuilder).toList();
     }
 
     @Transactional

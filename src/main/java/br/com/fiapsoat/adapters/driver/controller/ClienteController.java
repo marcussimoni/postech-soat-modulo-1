@@ -5,6 +5,7 @@ import br.com.fiapsoat.core.application.usecases.cliente.ClienteUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class ClienteController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     @Operation(tags = "Área administrativa - Clientes", summary = "Cadastrar cliente", description = "Salva um novo cliente")
     public ClienteDTO salvar(@RequestBody ClienteDTO cliente) {
         return clienteUseCase.salvar(cliente);

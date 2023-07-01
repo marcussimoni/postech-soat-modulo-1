@@ -30,7 +30,7 @@ Com a api e o banco de dados iniciados, podemos acessar a documentação da api 
 O processo para realizar um pedido através dos endpoints da api deve seguir os seguintes passos:
 
 1. Verificar se o cliente possui cadastro ou cadastra-lo caso não seja cadastrado no sistema ainda:
-   1. Para verificar se o cliente possui cadastro podemos utilizar o endpoint: ***[atendimento/buscar/cliente/{cpf}](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarClientePorCpf)***
+   1. Para verificar se o cliente possui cadastro podemos utilizar o endpoint: ***[atendimento/cliente/buscar](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarClientePorCpf)***
    2. Cadastrar o novo cliente no endpoint: ***[atendimento/cliente/cadastrar](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/cadastrarNovoCliente)***
 2. A segunda etapa consiste em apresentar os produtos disponíveis para compor o pedido. Os pedidos podem ser acessados em: ***[atendimento/produtos](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/buscarProdutosPorCategoria)***
 3. Após os produtos escolhidos o checkout do pedido pode ser concluido pelo endpoint ***[atendimento/pedido/checkout](http://localhost:8080/swagger-ui/index.html#/Totem%20de%20auto%20atendimento/checkout)***. O cliente é opcional durante o checkout, se o cliente desejar se identificar é necessário incluir o cpf do cliente no payload do pedido.

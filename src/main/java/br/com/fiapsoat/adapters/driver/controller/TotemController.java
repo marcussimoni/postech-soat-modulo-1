@@ -28,7 +28,7 @@ public class TotemController {
     private final PedidoUseCase pedidoUseCase;
     private final PagamentoUseCase pagamentoUseCase;
 
-    @GetMapping(path = "/cliente/buscar/{cpf}")
+    @GetMapping(path = "/cliente/buscar")
     @Operation(summary = "Buscar cliente por cpf", tags = "Totem de auto atendimento", description = "Consulta na base de dados um cliente cadastrado a partir do cpf")
     public ClienteDTO buscarClientePorCpf(
             @Parameter(description = "Cpf do cliente para identificação")

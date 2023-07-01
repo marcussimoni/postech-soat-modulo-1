@@ -1,6 +1,5 @@
 package br.com.fiapsoat.core.application.usecases.pedido;
 
-import br.com.fiapsoat.adapters.driven.repositories.PedidoRepository;
 import br.com.fiapsoat.adapters.dto.CheckoutPedidoDTO;
 import br.com.fiapsoat.adapters.dto.PedidoDTO;
 import br.com.fiapsoat.core.application.usecases.cliente.ClienteUseCase;
@@ -10,6 +9,7 @@ import br.com.fiapsoat.core.domain.entities.pedido.Pedido;
 import br.com.fiapsoat.core.domain.entities.produto.Produto;
 import br.com.fiapsoat.core.domain.exceptions.BusinessException;
 import br.com.fiapsoat.core.domain.mappers.ProdutoMapper;
+import br.com.fiapsoat.core.domain.repositories.PedidoRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;

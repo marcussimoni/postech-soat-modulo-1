@@ -1,11 +1,13 @@
-package br.com.fiapsoat.adapters.driven.repositories;
+package br.com.fiapsoat.core.domain.repositories;
 
 import br.com.fiapsoat.core.domain.entities.cliente.Cliente;
 import br.com.fiapsoat.core.domain.valueobjects.cpf.Cpf;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface ClienteRepository extends CrudRepository<Cliente, Long> {
+public interface ClienteRepository {
     Optional<Cliente> findByCpf(Cpf cpf);
+    Cliente save(Cliente cliente);
+
+    Iterable<Cliente> findAll();
 }

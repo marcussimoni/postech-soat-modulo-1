@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,6 +53,7 @@ public class TotemController {
         return produtoUseCase.listar(categoria);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/pedido/checkout")
     @Operation(tags = "Totem de auto atendimento", summary = "Checkout do pedido", description = "Realiza o checkout do pedido com todos os itens selecionados e os dados do cliente caso o mesmo tenha se identificado. É obrigatório a adicionar ao menos um produto a lista para prosseguir com o checkout do pedido.")
     public PedidoDTO checkout(@RequestBody CheckoutPedidoDTO dto){

@@ -1,15 +1,13 @@
 package br.com.fiapsoat.core.application.usecases.produto;
 
-import br.com.fiapsoat.adapters.driven.repositories.ProdutoRepository;
+import br.com.fiapsoat.adapters.dto.ProdutoDTO;
 import br.com.fiapsoat.core.domain.entities.enums.Categoria;
 import br.com.fiapsoat.core.domain.entities.produto.Produto;
 import br.com.fiapsoat.core.domain.exceptions.BusinessException;
 import br.com.fiapsoat.core.domain.mappers.ProdutoMapper;
-import br.com.fiapsoat.adapters.dto.ProdutoDTO;
+import br.com.fiapsoat.core.domain.repositories.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -36,9 +34,9 @@ public class ProdutoUsecaseImpl implements ProdutoUseCase {
 
         Produto entity = mapper.dtoToEntity(dto);
 
-        repository.save(entity);
+        Produto saved = repository.save(entity);
 
-        return dto;
+        return mapper.entityToDto(saved);
 
     }
 

@@ -1,10 +1,10 @@
 package br.com.fiapsoat.core.application.usecases.cliente;
 
-import br.com.fiapsoat.adapters.driven.repositories.ClienteRepository;
 import br.com.fiapsoat.adapters.dto.ClienteDTO;
 import br.com.fiapsoat.core.domain.entities.cliente.Cliente;
 import br.com.fiapsoat.core.domain.exceptions.BusinessException;
 import br.com.fiapsoat.core.domain.mappers.ClienteMapper;
+import br.com.fiapsoat.core.domain.repositories.ClienteRepository;
 import br.com.fiapsoat.core.domain.valueobjects.cpf.Cpf;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -42,10 +42,10 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
         } else {
 
             Cliente entity = new Cliente(dto);
+            entity.setId(null);
+            Cliente saved = repository.save(entity);
 
-            repository.save(entity);
-
-            return dto;
+            return mapper.entityToDto(saved);
 
         }
 
